@@ -36,7 +36,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         progressBar = findViewById(R.id.progressbarID);
 
         mAuth = FirebaseAuth.getInstance();
+
         findViewById(R.id.signUpBtnID).setOnClickListener(this);
+        //findViewById(R.id)
     }
 
     private void registerUser(){
