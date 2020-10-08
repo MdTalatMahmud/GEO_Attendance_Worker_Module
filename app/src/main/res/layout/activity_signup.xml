@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/login"
-    tools:context=".MainActivity">
+    tools:context=".SignupActivity">
 
     <EditText
         android:id="@+id/emailEditTextID"
@@ -24,6 +24,13 @@
         android:password="true"
         android:hint="Password"/>
 
+    <EditText
+        android:id="@+id/confirmPasswordEditTextID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:password="true"
+        android:hint="Confirm Password"/>
+
     <Button
         android:id="@+id/signInBtnID"
         android:layout_width="match_parent"
@@ -37,17 +44,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account?"/>
+            android:text="Already have an account?"/>
 
         <TextView
-            android:id="@+id/signupHereTextViewID"
+            android:id="@+id/signinHereTextViewID"
             android:textColor="#2196F3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Sign up here"/>
+            android:text=" Sign in"/>
 
 
     </LinearLayout>
-
 
 </LinearLayout>

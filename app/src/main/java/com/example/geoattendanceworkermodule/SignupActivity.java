@@ -7,20 +7,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import org.w3c.dom.Text;
 
-    TextView signupHereTextView;
+public class SignupActivity extends AppCompatActivity {
+
+    TextView signinHereTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
-        signupHereTextView = findViewById(R.id.signupHereTextViewID);
-        signupHereTextView.setOnClickListener(new View.OnClickListener() {
+        signinHereTextView= findViewById(R.id.signinHereTextViewID);
+
+        signinHereTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
+                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
