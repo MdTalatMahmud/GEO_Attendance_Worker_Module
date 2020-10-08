@@ -38,7 +38,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.signUpBtnID).setOnClickListener(this);
-        //findViewById(R.id)
+        findViewById(R.id.signinHereTextViewID).setOnClickListener(this);
     }
 
     private void registerUser(){
@@ -76,7 +76,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(),"User register successful",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"User register successful",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(SignupActivity.this, DashboardActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                 }else {
                     if (task.getException() instanceof FirebaseAuthUserCollisionException){
                         Toast.makeText(getApplicationContext(),"You are already registered", Toast.LENGTH_SHORT).show();
