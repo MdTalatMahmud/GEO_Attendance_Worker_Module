@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "498356713936",
+    "firebase_url": "https://geoattendanceworkermodule.firebaseio.com",
+    "project_id": "geoattendanceworkermodule",
+    "storage_bucket": "geoattendanceworkermodule.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498356713936:android:1c7795a1121219a17961d5",
+        "android_client_info": {
+          "package_name": "com.example.geoattendanceworkermodule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498356713936-s1e3jcq325ocrdqd42e49ibl8k2cukr6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcBddjuudUquUavGz701yikBEJserUS3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498356713936-s1e3jcq325ocrdqd42e49ibl8k2cukr6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

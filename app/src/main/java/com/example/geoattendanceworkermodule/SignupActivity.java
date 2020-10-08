@@ -16,30 +16,32 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import org.w3c.dom.Text;
 
-    FirebaseAuth mAuth;
+public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
+
     EditText editTextEmail, editTextPassword;
     ProgressBar progressBar;
 
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
         editTextEmail = findViewById(R.id.emailEditTextID);
         editTextPassword = findViewById(R.id.passwordEditTextID);
-        progressBar = findViewById(R.id.progressbarLoginID);
+        progressBar = findViewById(R.id.progressbarID);
 
         mAuth = FirebaseAuth.getInstance();
 
-        findViewById(R.id.signupHereTextViewID).setOnClickListener(this);
-        findViewById(R.id.signInBtnID).setOnClickListener(this);
+        findViewById(R.id.signUpBtnID).setOnClickListener(this);
+        //findViewById(R.id)
     }
 
-    private void userLogin(){
-
+    private void registerUser(){
         String emailString = editTextEmail.getText().toString().trim();
         String passwordString = editTextPassword.getText().toString().trim();
 
@@ -69,15 +71,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         progressBar.setVisibility(View.VISIBLE);
 
-        mAuth.signInWithEmailAndPassword(emailString,passwordString).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(emailString, passwordString).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()){
-                    Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(),"User register successful",Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(getApplicationContext(),task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException){
+                        Toast.makeText(getApplicationContext(),"You are already registered", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -86,13 +92,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.signupHereTextViewID:
-                startActivity(new Intent(this,SignupActivity.class));
-                break;
-            case R.id.signInBtnID:
-                userLogin();
+            case R.id.signUpBtnID:
+                registerUser();
                 break;
 
+            case R.id.signinHereTextViewID:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
         }
     }
 }
