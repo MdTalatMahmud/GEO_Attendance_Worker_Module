@@ -28,12 +28,43 @@
 
     </LinearLayout>
 
+<!--    date creating-->
+<!--    <LinearLayout-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/dateEditTextID"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="time"-->
+<!--            android:hint="dd/ "/>-->
+
+<!--        <EditText-->
+<!--        android:id="@+id/monthEditTextID"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:inputType="time"-->
+<!--        android:hint="mm/ "/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/yearEditTextID"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="time"-->
+<!--            android:hint="yyyy "/>-->
+
+<!--    </LinearLayout>-->
+
 
 
 
     <Button
         android:id="@+id/setRosterBtnID"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Set Roater"/>
+
+
 </LinearLayout>
